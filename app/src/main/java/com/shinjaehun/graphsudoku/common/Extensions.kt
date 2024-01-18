@@ -6,6 +6,8 @@ import com.shinjaehun.graphsudoku.R
 import com.shinjaehun.graphsudoku.domain.Difficulty
 
 internal fun Activity.makeToast(message: String) {
+    // "internal" visibility is good for code that needs to be accessed in many
+    // different packages, but not by external programs/modules.
     Toast.makeText(
         this,
         message,
@@ -24,7 +26,7 @@ internal fun Long.toTime(): String {
 
 internal val Difficulty.toLocalizedResource: Int
     get(){
-        return when(this){
+        return when(this){ // 당연히 this는 Difficulty
             Difficulty.EASY -> R.string.easy
             Difficulty.MEDIUM -> R.string.medium
             Difficulty.HARD -> R.string.hard

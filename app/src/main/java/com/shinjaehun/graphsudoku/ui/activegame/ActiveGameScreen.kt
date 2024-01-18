@@ -136,6 +136,7 @@ fun ActiveGameScreen(
             //Each time a recomposition occurs, this when statement will be executed again.
             when (contentTransitionState.currentState) {
                 ActiveGameScreenState.ACTIVE -> Box(
+                    // 이거 순서 중요한 거 같은데?? top은 어쨌든 ActiveGameScreenState.ACTIVE가 되어야 한데!
                     //These values will change when the transition animation occurs, thus fading
                     //out the previous content state, and fading in the new one.
                     Modifier

@@ -7,6 +7,7 @@ class GameRepositoryImpl(
     private val gameStorage: IGameDataStorage,
     private val settingsStorage: ISettingsStorage
 ) : IGameRepository {
+    // a bridge and decision maker for the backend
     override suspend fun saveGame(
         elapsedTime: Long,
         onSuccess: (Unit) -> Unit,
@@ -109,12 +110,11 @@ class GameRepositoryImpl(
                     //4d
                     is SettingsStorageResult.OnError -> onError(getSettingsResult.exception)
                     else -> {
-
+                        // when에 else 없음 안돼요.
                     }
                 }
             }
         }
-
     }
 
     override suspend fun createNewGame(
@@ -131,7 +131,7 @@ class GameRepositoryImpl(
             }
             is SettingsStorageResult.OnError -> onError(updateSettingsResult.exception)
             else -> {
-
+                // when에 else 없음 안돼요.
             }
         }
     }
@@ -150,10 +150,9 @@ class GameRepositoryImpl(
             is SettingsStorageResult.OnSuccess -> onSuccess(getSettingsResult.settings)
             is SettingsStorageResult.OnError -> onError(getSettingsResult.exception)
             else -> {
-
+                // when에 else 없음 안돼요.
             }
         }
-
     }
 
     override suspend fun updateSettings(

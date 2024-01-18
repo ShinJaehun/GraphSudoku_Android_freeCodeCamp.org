@@ -17,6 +17,11 @@ internal val Context.settingsDataStore: DataStore<GameSettings> by dataStore(
 )
 
 private object GameSettingsSerializer : Serializer<GameSettings> {
+    // serialization in this context means translating JVM classes and fields(Kotlin or Java)
+    // into a serialization language like JSON or ProtoBuff
+    // deserialization is the oppsite process, where we read from a serialization languages
+    // and translate it into JVM code like the GameSettings class
+
     override val defaultValue: GameSettings = GameSettings.getDefaultInstance()
 
     override suspend fun readFrom(input: InputStream): GameSettings {

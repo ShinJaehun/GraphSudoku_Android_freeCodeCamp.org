@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.shinjaehun.graphsudoku.R // 직접 입력해야 정상적으로 작동함...
 import com.shinjaehun.graphsudoku.ui.lightGrey
@@ -49,3 +50,9 @@ fun LoadingScreen() {
         }
     }
 }
+
+//@Preview
+//@Composable
+//fun DefaultPreview() {
+//    LoadingScreen()
+//}

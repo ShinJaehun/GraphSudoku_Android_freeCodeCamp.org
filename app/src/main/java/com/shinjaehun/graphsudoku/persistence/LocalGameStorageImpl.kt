@@ -16,6 +16,7 @@ class LocalGameStorageImpl(
 ) : IGameDataStorage {
     override suspend fun updateGame(game: SudokuPuzzle): GameStorageResult = withContext(Dispatchers.IO) {
         // withContext()를 왜 이렇게 쓰는지 모르겠음!
+        // 일단 파일로 game을 저장할꺼니까 IO context에서 하는게 맞지 밥팅아!
         try {
             updateGameData(game)
             GameStorageResult.OnSuccess(game)
@@ -38,7 +39,7 @@ class LocalGameStorageImpl(
     override suspend fun updateNode(x: Int, y: Int, color: Int, elapsedTime: Long): GameStorageResult = withContext(Dispatchers.IO) {
         try {
             val game = getGame()
-            game.graph[getHash(x, y)]!!.first.color = color
+            game.graph[getHash(x, y)]!!.first.color = color // 어쨌든 이 SudokuPuzzle의 graph가 실재 어떻게 생겼는지는 좀 알아보고 싶다...
             game.elapsedTime = elapsedTime
             updateGameData(game)
             GameStorageResult.OnSuccess(game)
